@@ -9,10 +9,27 @@ function App() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 10)
     }
-
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
+
+  const navItems = [
+    { label: "Home", href: "#home" },
+    { label: "About", href: "#about" },
+    { label: "Services", href: "#services" },
+    { label: "Works", href: "#works" },
+    { label: "Contact", href: "#contact" },
+  ]
+
+  const scrollToSection = (href: string) => {
+    const id = href.replace("#", "")
+    const section = document.getElementById(id)
+    if (section) {
+      const offset = 72
+      const top = section.getBoundingClientRect().top + window.scrollY - offset
+      window.scrollTo({ top, behavior: "smooth" })
+    }
+  }
 
   return (
     <div className="min-h-screen text-white">
@@ -20,7 +37,7 @@ function App() {
       {/* Navbar */}
       <nav
         className={`fixed top-0 left-0 w-full z-50 px-6 md:px-10 py-4 flex justify-between items-center transition-all duration-300
-        ${scrolled ? "bg-white/80 backdrop-blur-md shadow-md border-b border-gray-200" : "bg-transparent"}
+        ${scrolled ? "bg-black/80 backdrop-blur-md shadow-md border-b border-gray-800" : "bg-transparent"}
         `}
       >
         {/* Logo */}
@@ -30,15 +47,15 @@ function App() {
 
         {/* Desktop Menu */}
         <div className="hidden md:flex space-x-8 text-gray-300">
-          {["Home", "About", "Services", "Works", "Contact"].map((item) => (
-            <a
-              key={item}
-              href="#"
+          {navItems.map((item) => (
+            <button
+              key={item.label}
+              onClick={() => scrollToSection(item.href)}
               className="relative group transition"
             >
-              {item}
+              {item.label}
               <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-yellow-500 transition-all duration-300 group-hover:w-full"></span>
-            </a>
+            </button>
           ))}
         </div>
 
@@ -62,56 +79,94 @@ function App() {
       {/* Mobile Menu */}
       {menuOpen && (
         <div className="fixed top-0 left-0 w-full h-screen bg-black/95 flex flex-col items-center justify-center space-y-8 text-xl z-40">
-          {["Home", "About", "Services", "Works", "Contact"].map((item) => (
-            <a key={item} href="#" onClick={() => setMenuOpen(false)}>
-              {item}
-            </a>
+          {navItems.map((item) => (
+            <button
+              key={item.label}
+              onClick={() => {
+                scrollToSection(item.href)
+                setMenuOpen(false)
+              }}
+              className="text-white hover:text-yellow-500 transition"
+            >
+              {item.label}
+            </button>
           ))}
         </div>
       )}
 
       {/* Hero Section */}
       <section
+        id="home"
         className="h-screen flex items-center px-6 md:px-16 bg-cover bg-center relative"
         style={{ backgroundImage: `url(${bgImage})` }}
       >
-        {/* Overlay */}
         <div className="absolute inset-0 bg-black/60"></div>
-
-        {/* Content */}
         <div className="relative z-10 max-w-3xl text-left">
-          
-          {/* Artistic Heading */}
           <h1 className="font-display text-6xl md:text-8xl leading-[1.1] md:leading-[1.05] mb-8">
-            
-            {/* First line */}
             <span className="block whitespace-nowrap text-white font-artistic italic tracking-wide">
               Stories from the
             </span>
-
-            {/* Second line */}
             <span className="block bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">
               Heart of Africa
             </span>
-
           </h1>
-
-          {/* Description */}
           <p className="text-gray-300 mb-8 text-lg">
             Ann Peter Production is a film studio crafting cinematic features,
             commercials and documentaries — rooted in African soul, made for the world.
           </p>
-
-          {/* Buttons */}
           <div className="flex space-x-4">
             <button className="bg-yellow-500 text-black px-6 py-3 rounded-lg hover:bg-yellow-600 transition">
               Start a Project with Us
             </button>
-
             <button className="border border-yellow-500 text-yellow-500 px-6 py-3 rounded-lg hover:bg-yellow-500 hover:text-black transition">
               Learn More
             </button>
           </div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section id="about" className="bg-black text-white px-6 md:px-16 py-32">
+        <div className="max-w-7xl mx-auto">
+
+          {/* About Title - mobile only */}
+          <div className="flex items-center gap-4 mb-8 md:hidden">
+            <div className="w-12 h-[2px] bg-yellow-500"></div>
+            <h3 className="font-display text-lg tracking-wide text-gray-400">
+              About Ann Peter Productions
+            </h3>
+          </div>
+
+          {/* Top Artistic Statement */}
+          <div className="mb-20 md:ml-[50%] md:pl-8">
+            <h2 className="font-artistic italic text-4xl md:text-5xl leading-tight">
+              <span className="block bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">
+                We tell African stories with the craft they deserve
+              </span>
+            </h2>
+          </div>
+
+          {/* Main Grid */}
+          <div className="grid md:grid-cols-2 gap-16 items-start">
+            <div className="hidden md:block">
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-12 h-[2px] bg-yellow-500"></div>
+                <h3 className="font-display text-lg md:text-xl tracking-wide text-gray-400">
+                  About Ann Peter Productions
+                </h3>
+              </div>
+            </div>
+            <div className="grid md:grid-cols-2 gap-10 text-gray-300 text-lg leading-relaxed">
+              <p>
+                Africa's stories demand to be heard. Its creativity demands to be seen. Ann Peter Production
+                exists to make that happen.
+              </p>
+              <p>
+                Our roots are African. Our vision is global. Every film we make carries both.
+              </p>
+            </div>
+          </div>
+
         </div>
       </section>
 
