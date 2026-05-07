@@ -256,60 +256,70 @@ function App() {
 
             <form className="space-y-6">
 
-              {/* Full Name */}
-              <div>
-                <label className="block text-sm text-gray-400 mb-2">
-                  Full Name
-                </label>
+              {/* Name + Email */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
 
-                <input
-                  type="text"
-                  placeholder="Your full name"
-                  className="w-full bg-black border border-gray-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-yellow-500 transition"
-                />
+                {/* Full Name */}
+                <div>
+                  <label className="block text-sm text-gray-400 mb-2">
+                    Full Name
+                  </label>
+
+                  <input
+                    type="text"
+                    placeholder="Your full name"
+                    className="w-full bg-black border border-gray-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-yellow-500 transition"
+                  />
+                </div>
+
+                {/* Email */}
+                <div>
+                  <label className="block text-sm text-gray-400 mb-2">
+                    Email
+                  </label>
+
+                  <input
+                    type="email"
+                    placeholder="you@example.com"
+                    className="w-full bg-black border border-gray-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-yellow-500 transition"
+                  />
+                </div>
+
               </div>
 
-              {/* Email */}
-              <div>
-                <label className="block text-sm text-gray-400 mb-2">
-                  Email
-                </label>
+              {/* Phone + Inquiry */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
 
-                <input
-                  type="email"
-                  placeholder="you@example.com"
-                  className="w-full bg-black border border-gray-800 rounded-xl px-4 py-4 text-white focus:outline-none focus:border-yellow-500 transition"
-                />
-              </div>
+                {/* Phone */}
+                <div>
+                  <label className="block text-sm text-gray-400 mb-2">
+                    Phone No: <span className="text-gray-600">(Optional)</span>
+                  </label>
 
-              {/* Phone */}
-              <div>
-                <label className="block text-sm text-gray-400 mb-2">
-                  Phone No: <span className="text-gray-600">(Optional)</span>
-                </label>
+                  <input
+                    type="text"
+                    placeholder="+254700000000"
+                    className="w-full bg-black border border-gray-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-yellow-500 transition"
+                  />
+                </div>
 
-                <input
-                  type="text"
-                  placeholder="+254700000000"
-                  className="w-full bg-black border border-gray-800 rounded-xl px-4 py-4 text-white focus:outline-none focus:border-yellow-500 transition"
-                />
-              </div>
+                {/* Inquiry */}
+                <div>
+                  <label className="block text-sm text-gray-400 mb-2">
+                    Inquiry Type
+                  </label>
 
-              {/* Inquiry Type */}
-              <div>
-                <label className="block text-sm text-gray-400 mb-2">
-                  Inquiry Type
-                </label>
+                  <select
+                    className="w-full bg-black border border-gray-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-yellow-500 transition"
+                  >
+                    <option>Feature Film</option>
+                    <option>Commercial/Advertisement</option>
+                    <option>Documentary/Events</option>
+                    <option>Partnership</option>
+                    <option>Other</option>
+                  </select>
+                </div>
 
-                <select
-                  className="w-full bg-black border border-gray-800 rounded-xl px-4 py-4 text-white focus:outline-none focus:border-yellow-500 transition"
-                >
-                  <option>Feature Film</option>
-                  <option>Commercial/Advertisement</option>
-                  <option>Documentary/Events</option>
-                  <option>Partnership</option>
-                  <option>Other</option>
-                </select>
               </div>
 
               {/* Message */}
@@ -321,14 +331,14 @@ function App() {
                 <textarea
                   rows={6}
                   placeholder="Share your vision..."
-                  className="w-full bg-black border border-gray-800 rounded-xl px-4 py-4 text-white resize-none focus:outline-none focus:border-yellow-500 transition"
+                  className="w-full bg-black border border-gray-800 rounded-xl px-4 py-3 text-white resize-none focus:outline-none focus:border-yellow-500 transition"
                 ></textarea>
               </div>
 
               {/* Submit */}
               <button
                 type="submit"
-                className="w-full bg-yellow-500 text-black font-medium py-4 rounded-xl hover:bg-yellow-600 transition duration-300"
+                className="w-full bg-yellow-500 text-black font-medium py-3 rounded-xl hover:bg-yellow-600 transition duration-300"
               >
                 Send Inquiry
               </button>
