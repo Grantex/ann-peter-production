@@ -170,6 +170,177 @@ function App() {
         </div>
       </section>
 
+      {/* Contact Section */}
+      <section id="contact" className="bg-[#0a0a0a] text-white px-6 md:px-16 py-24">
+
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-14 items-start">
+
+          {/* LEFT SIDE */}
+          <div>
+
+            {/* Section Label */}
+            <div className="flex items-center gap-4 mb-6">
+              <div className="w-12 h-[2px] bg-yellow-500"></div>
+
+              <h3 className="font-display text-lg md:text-xl tracking-wide text-gray-400">
+                Lets create something together
+              </h3>
+            </div>
+
+            {/* Artistic Heading */}
+            <h2 className="font-artistic italic text-4xl md:text-5xl leading-tight mb-8 whitespace-nowrap">
+
+              <span className="text-gray-100">
+                Got a story to{" "}
+              </span>
+
+              <span className="bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">
+                tell?
+              </span>
+
+        
+
+            </h2>
+
+            {/* Description */}
+            <p className="text-gray-400 text-base md:text-lg leading-relaxed max-w-lg mb-12">
+              Whether it's a 30-second spot or a feature-length film,
+              we'd love to hear what you're imagining!
+            </p>
+
+            {/* Contact Info */}
+            <div className="space-y-6">
+
+              {/* Email */}
+              <div className="flex items-center gap-4">
+                <div className="w-10 h-10 rounded-full border border-yellow-500 flex items-center justify-center text-yellow-500">
+                  ✉
+                </div>
+
+                <div>
+                  <p className="text-sm text-gray-500">Email</p>
+                  <p className="text-gray-200">hello@annpeterproduction.com</p>
+                </div>
+              </div>
+
+              {/* Phone */}
+              <div className="flex items-center gap-4">
+                <div className="w-10 h-10 rounded-full border border-yellow-500 flex items-center justify-center text-yellow-500">
+                  ☎
+                </div>
+
+                <div>
+                  <p className="text-sm text-gray-500">Phone</p>
+                  <p className="text-gray-200">+254 700 000 000</p>
+                </div>
+              </div>
+
+              {/* Location */}
+              <div className="flex items-center gap-4">
+                <div className="w-10 h-10 rounded-full border border-yellow-500 flex items-center justify-center text-yellow-500">
+                  ⌖
+                </div>
+
+                <div>
+                  <p className="text-sm text-gray-500">Location</p>
+                  <p className="text-gray-200">Nairobi, Kenya</p>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+          {/* RIGHT SIDE - CONTACT FORM */}
+          <div className="bg-[#111111] border border-gray-800 rounded-3xl p-6 md:p-8">
+
+            <form className="space-y-6">
+
+              {/* Full Name */}
+              <div>
+                <label className="block text-sm text-gray-400 mb-2">
+                  Full Name
+                </label>
+
+                <input
+                  type="text"
+                  placeholder="Your full name"
+                  className="w-full bg-black border border-gray-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-yellow-500 transition"
+                />
+              </div>
+
+              {/* Email */}
+              <div>
+                <label className="block text-sm text-gray-400 mb-2">
+                  Email
+                </label>
+
+                <input
+                  type="email"
+                  placeholder="you@example.com"
+                  className="w-full bg-black border border-gray-800 rounded-xl px-4 py-4 text-white focus:outline-none focus:border-yellow-500 transition"
+                />
+              </div>
+
+              {/* Phone */}
+              <div>
+                <label className="block text-sm text-gray-400 mb-2">
+                  Phone No: <span className="text-gray-600">(Optional)</span>
+                </label>
+
+                <input
+                  type="text"
+                  placeholder="+254700000000"
+                  className="w-full bg-black border border-gray-800 rounded-xl px-4 py-4 text-white focus:outline-none focus:border-yellow-500 transition"
+                />
+              </div>
+
+              {/* Inquiry Type */}
+              <div>
+                <label className="block text-sm text-gray-400 mb-2">
+                  Inquiry Type
+                </label>
+
+                <select
+                  className="w-full bg-black border border-gray-800 rounded-xl px-4 py-4 text-white focus:outline-none focus:border-yellow-500 transition"
+                >
+                  <option>Feature Film</option>
+                  <option>Commercial/Advertisement</option>
+                  <option>Documentary/Events</option>
+                  <option>Partnership</option>
+                  <option>Other</option>
+                </select>
+              </div>
+
+              {/* Message */}
+              <div>
+                <label className="block text-sm text-gray-400 mb-2">
+                  Tell us about your project/idea
+                </label>
+
+                <textarea
+                  rows={6}
+                  placeholder="Share your vision..."
+                  className="w-full bg-black border border-gray-800 rounded-xl px-4 py-4 text-white resize-none focus:outline-none focus:border-yellow-500 transition"
+                ></textarea>
+              </div>
+
+              {/* Submit */}
+              <button
+                type="submit"
+                className="w-full bg-yellow-500 text-black font-medium py-4 rounded-xl hover:bg-yellow-600 transition duration-300"
+              >
+                Send Inquiry
+              </button>
+
+            </form>
+
+          </div>
+
+        </div>
+
+      </section>
+
       {/* Scroll Section */}
       <section className="h-[120vh] bg-white text-black flex items-center justify-center">
         <h2 className="text-3xl font-bold">Scroll to see navbar effect</h2>
