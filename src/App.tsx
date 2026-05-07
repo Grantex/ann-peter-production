@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react"
 import bgImage from "./assets/hero-background.png"
+import works1 from "./assets/Ndani_Ya_Tabasamu_Cast_Pic2.jpeg"
+import works2 from "./assets/Kona.png"
 
 function App() {
   const [scrolled, setScrolled] = useState(false)
@@ -168,6 +170,136 @@ function App() {
           </div>
 
         </div>
+      </section>
+
+      {/* Works Section */}
+      <section id="works" className="bg-black text-white px-6 md:px-16 py-28">
+
+        <div className="max-w-7xl mx-auto">
+
+          {/* Section Title */}
+          <div className="flex items-center justify-end gap-4 mb-14">
+            <div className="w-12 h-[2px] bg-yellow-500"></div>
+
+            <h3 className="font-display text-lg md:text-xl tracking-wide text-gray-400">
+              Featured Works
+            </h3>
+          </div>
+
+          {/* Works Grid */}
+          <div className="grid md:grid-cols-2 gap-8">
+
+            {/* CARD 1 */}
+            <div className="group relative overflow-hidden rounded-3xl h-[520px] cursor-pointer">
+
+              {/* Background Image */}
+              <img
+                src={works1}
+                alt="Ndani ya Tabasamu"
+                className="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-105"
+              />
+
+              {/* Dark Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent"></div>
+
+              {/* Content */}
+              <div className="absolute bottom-0 left-0 w-full p-8 md:p-10">
+
+                {/* Film Type */}
+                <p className="text-sm uppercase tracking-[0.25em] text-yellow-400 mb-3">
+                  Feature Film • 2026
+                </p>
+
+                {/* Title */}
+                <h2 className="text-4xl md:text-5xl font-semibold leading-tight mb-8">
+                  Ndani ya Tabasamu
+                </h2>
+
+                {/* Bottom Row */}
+                <div className="flex items-center justify-between">
+
+                  {/* Small Description */}
+                  <p className="text-gray-300 max-w-sm text-sm md:text-base leading-relaxed">
+                    A look into the complexities of the everyday relationships, from hot romance, cold affections
+                    and the front put up for the world to see hidign the drama underneath the homestead. 
+                  </p>
+
+                  {/* Artistic Explore Button */}
+                  <button className="group/button flex items-center gap-3 text-yellow-400 hover:text-white transition">
+
+                    <span className="text-sm uppercase tracking-[0.2em]">
+                      Explore
+                    </span>
+
+                    <div className="w-12 h-12 rounded-full border border-yellow-500 flex items-center justify-center transition group-hover/button:bg-yellow-500 group-hover/button:text-black">
+                      →
+                    </div>
+
+                  </button>
+
+                </div>
+
+              </div>
+
+            </div>
+
+            {/* CARD 2 */}
+            <div className="group relative overflow-hidden rounded-3xl h-[520px] cursor-pointer">
+
+              {/* Background Image */}
+              <img
+                src={works2}
+                alt="Whispers Beneath"
+                className="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-105"
+              />
+
+              {/* Dark Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent"></div>
+
+              {/* Content */}
+              <div className="absolute bottom-0 left-0 w-full p-8 md:p-10">
+
+                {/* Film Type */}
+                <p className="text-sm uppercase tracking-[0.25em] text-yellow-400 mb-3">
+                  Documentary • 2025
+                </p>
+
+                {/* Title */}
+                <h2 className="text-4xl md:text-5xl font-semibold leading-tight mb-8">
+                  Destiny Brother
+                </h2>
+
+                {/* Bottom Row */}
+                <div className="flex items-center justify-between">
+
+                  {/* Description */}
+                  <p className="text-gray-300 max-w-sm text-sm md:text-base leading-relaxed">
+                    Uncovering stories buried beneath the 'African tax': who benefits, who loses
+                  </p>
+
+                  {/* Explore Button */}
+                  <button className="group/button flex items-center gap-3 text-yellow-400 hover:text-white transition">
+
+                    <span className="text-sm uppercase tracking-[0.2em]">
+                      Explore
+                    </span>
+
+                    <div className="w-12 h-12 rounded-full border border-yellow-500 flex items-center justify-center transition group-hover/button:bg-yellow-500 group-hover/button:text-black">
+                      →
+                    </div>
+
+                  </button>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
       </section>
 
       {/* Contact Section */}
