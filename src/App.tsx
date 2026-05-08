@@ -38,7 +38,7 @@ function App() {
 
       {/* Navbar */}
       <nav
-        className={`fixed top-0 left-0 w-full z-50 px-6 md:px-10 py-4 flex justify-between items-center transition-all duration-300
+        className={`fixed top-0 left-0 w-full z-[60] px-6 md:px-10 py-4 flex justify-between items-center transition-all duration-300
         ${scrolled ? "bg-black/80 backdrop-blur-md shadow-md border-b border-gray-800" : "bg-transparent"}
         `}
       >
@@ -61,26 +61,39 @@ function App() {
           ))}
         </div>
 
-        {/* CTA */}
-        <button className="hidden md:block bg-yellow-500 text-black px-4 py-2 rounded-lg hover:bg-yellow-600 transition">
-          Start a Project with Us
+        {/* CTA - desktop only */}
+        <button
+          onClick={() => scrollToSection("#contact")}
+          className="hidden md:block border border-yellow-500 text-yellow-500 px-4 py-2 rounded-lg hover:bg-yellow-500 hover:text-black transition text-sm"
+        >
+          Get in Touch
         </button>
 
         {/* Hamburger */}
         <div className="md:hidden">
-          <button onClick={() => setMenuOpen(!menuOpen)}>
-            <div className="space-y-1">
-              <span className="block w-6 h-[2px] bg-white"></span>
-              <span className="block w-6 h-[2px] bg-white"></span>
-              <span className="block w-6 h-[2px] bg-white"></span>
-            </div>
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="relative z-50 p-2"
+          >
+            {menuOpen ? (
+              <div className="relative w-6 h-6">
+                <span className="block w-6 h-[2px] bg-white absolute top-1/2 rotate-45"></span>
+                <span className="block w-6 h-[2px] bg-white absolute top-1/2 -rotate-45"></span>
+              </div>
+            ) : (
+              <div className="space-y-1">
+                <span className="block w-6 h-[2px] bg-white"></span>
+                <span className="block w-6 h-[2px] bg-white"></span>
+                <span className="block w-6 h-[2px] bg-white"></span>
+              </div>
+            )}
           </button>
         </div>
       </nav>
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="fixed top-0 left-0 w-full h-screen bg-black/95 flex flex-col items-center justify-center space-y-8 text-xl z-40">
+        <div className="fixed top-0 left-0 w-full h-screen bg-black/95 flex flex-col items-center justify-center space-y-8 text-xl z-50">
           {navItems.map((item) => (
             <button
               key={item.label}
@@ -99,28 +112,34 @@ function App() {
       {/* Hero Section */}
       <section
         id="home"
-        className="h-screen flex items-center px-6 md:px-16 bg-cover bg-center relative"
+        className="h-screen flex items-center px-6 md:px-16 bg-cover bg-center bg-no-repeat relative"
         style={{ backgroundImage: `url(${bgImage})` }}
       >
         <div className="absolute inset-0 bg-black/60"></div>
-        <div className="relative z-10 max-w-3xl text-left">
-          <h1 className="font-display text-6xl md:text-8xl leading-[1.1] md:leading-[1.05] mb-8">
-            <span className="block whitespace-nowrap text-white font-artistic italic tracking-wide">
+        <div className="relative z-10 w-full max-w-3xl text-left">
+          <h1 className="font-display leading-[1.1] mb-6">
+            <span className="block text-white font-artistic italic tracking-wide text-4xl sm:text-5xl md:text-7xl lg:text-8xl">
               Stories from the
             </span>
-            <span className="block bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">
+            <span className="block bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent text-4xl sm:text-5xl md:text-7xl lg:text-8xl">
               Heart of Africa
             </span>
           </h1>
-          <p className="text-gray-300 mb-8 text-lg">
+          <p className="text-gray-300 mb-8 text-base md:text-lg max-w-xl">
             Ann Peter Production is a film studio crafting cinematic features,
             commercials and documentaries — rooted in African soul, made for the world.
           </p>
-          <div className="flex space-x-4">
-            <button className="bg-yellow-500 text-black px-6 py-3 rounded-lg hover:bg-yellow-600 transition">
+          <div className="flex flex-col sm:flex-row gap-4">
+            <button
+              onClick={() => scrollToSection("#contact")}
+              className="bg-yellow-500 text-black px-6 py-3 rounded-lg hover:bg-yellow-600 transition font-semibold"
+            >
               Start a Project with Us
             </button>
-            <button className="border border-yellow-500 text-yellow-500 px-6 py-3 rounded-lg hover:bg-yellow-500 hover:text-black transition">
+            <button
+              onClick={() => scrollToSection("#about")}
+              className="border border-yellow-500 text-yellow-500 px-6 py-3 rounded-lg hover:bg-yellow-500 hover:text-black transition"
+            >
               Learn More
             </button>
           </div>
@@ -170,6 +189,91 @@ function App() {
           </div>
 
         </div>
+      </section>
+
+      {/* Services Section */}
+      <section id="services" className="bg-[#0a0a0a] text-white px-6 md:px-16 py-28">
+
+        <div className="max-w-7xl mx-auto">
+
+          {/* Section Title */}
+          <div className="flex items-center gap-4 mb-16">
+
+            <div className="w-12 h-[2px] bg-yellow-500"></div>
+
+            <h3 className="font-display text-lg md:text-xl tracking-wide text-gray-400">
+              What we do
+            </h3>
+
+          </div>
+
+          {/* Services Grid */}
+          <div className="grid md:grid-cols-3 gap-8">
+
+            {/* CARD 1 */}
+            <div className="group bg-[#111111] border border-gray-800 rounded-3xl p-8 transition duration-300 hover:border-yellow-500 hover:-translate-y-1">
+
+              {/* Icon */}
+              <div className="w-14 h-14 rounded-2xl bg-black border border-yellow-500 flex items-center justify-center text-2xl text-yellow-500 mb-6">
+                🎬
+              </div>
+
+              {/* Title */}
+              <h4 className="text-2xl font-semibold mb-4">
+                Feature Films
+              </h4>
+
+              {/* Description */}
+              <p className="text-gray-400 leading-relaxed">
+                Original screenplays and full-scale productions, from development through distribution.
+              </p>
+
+            </div>
+
+            {/* CARD 2 */}
+            <div className="group bg-[#111111] border border-gray-800 rounded-3xl p-8 transition duration-300 hover:border-yellow-500 hover:-translate-y-1">
+
+              {/* Icon */}
+              <div className="w-14 h-14 rounded-2xl bg-black border border-yellow-500 flex items-center justify-center text-2xl text-yellow-500 mb-6">
+                📺
+              </div>
+
+              {/* Title */}
+              <h4 className="text-2xl font-semibold mb-4">
+                Commercials
+              </h4>
+
+              {/* Description */}
+              <p className="text-gray-400 leading-relaxed">
+                Brand films and TVCs that move audiences and drive results across African markets.
+              </p>
+
+            </div>
+
+            {/* CARD 3 */}
+            <div className="group bg-[#111111] border border-gray-800 rounded-3xl p-8 transition duration-300 hover:border-yellow-500 hover:-translate-y-1">
+
+              {/* Icon */}
+              <div className="w-14 h-14 rounded-2xl bg-black border border-yellow-500 flex items-center justify-center text-2xl text-yellow-500 mb-6">
+                🎥
+              </div>
+
+              {/* Title */}
+              <h4 className="text-2xl font-semibold mb-4">
+                Documentaries
+              </h4>
+
+              {/* Description */}
+              <p className="text-gray-400 leading-relaxed">
+                Long-form storytelling for broadcasters, NGOs and streaming platforms.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
       </section>
 
       {/* Works Section */}
@@ -483,10 +587,171 @@ function App() {
 
       </section>
 
-      {/* Scroll Section */}
-      <section className="h-[120vh] bg-white text-black flex items-center justify-center">
-        <h2 className="text-3xl font-bold">Scroll to see navbar effect</h2>
-      </section>
+      {/* Footer */}
+      <footer className="bg-black text-white px-6 md:px-16 pt-20 pb-10 border-t border-gray-900">
+
+        <div className="max-w-7xl mx-auto">
+
+          {/* Top Footer */}
+          <div className="grid md:grid-cols-4 gap-14 pb-16 border-b border-gray-900">
+
+            {/* Brand */}
+            <div>
+
+              <h2 className="font-artistic italic text-3xl mb-6">
+                <span className="text-white">Ann Peter</span>{" "}
+                <span className="bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">
+                  Productions
+                </span>
+              </h2>
+
+              <p className="text-gray-400 leading-relaxed">
+                Crafting cinematic African stories through film,
+                documentaries, and visual storytelling for global audiences.
+              </p>
+
+            </div>
+
+            {/* Navigation */}
+            <div>
+
+              <h3 className="text-lg font-semibold mb-6 text-white">
+                Navigation
+              </h3>
+
+              <ul className="space-y-4 text-gray-400">
+
+                <li>
+                  <a href="#" className="hover:text-yellow-500 transition">
+                    Home
+                  </a>
+                </li>
+
+                <li>
+                  <a href="#about" className="hover:text-yellow-500 transition">
+                    About
+                  </a>
+                </li>
+
+                <li>
+                  <a href="#works" className="hover:text-yellow-500 transition">
+                    Featured Works
+                  </a>
+                </li>
+
+                <li>
+                  <a href="#services" className="hover:text-yellow-500 transition">
+                    Services
+                  </a>
+                </li>
+
+                <li>
+                  <a href="#contact" className="hover:text-yellow-500 transition">
+                    Contact
+                  </a>
+                </li>
+
+              </ul>
+
+            </div>
+
+            {/* Company */}
+            <div>
+
+              <h3 className="text-lg font-semibold mb-6 text-white">
+                Company
+              </h3>
+
+              <ul className="space-y-4 text-gray-400">
+
+                <li>
+                  <a href="#" className="hover:text-yellow-500 transition">
+                    Careers
+                  </a>
+                </li>
+
+                <li>
+                  <a href="#" className="hover:text-yellow-500 transition">
+                    Partnerships
+                  </a>
+                </li>
+
+                <li>
+                  <a href="#" className="hover:text-yellow-500 transition">
+                    Privacy Policy
+                  </a>
+                </li>
+
+                <li>
+                  <a href="#" className="hover:text-yellow-500 transition">
+                    Terms of Service
+                  </a>
+                </li>
+
+              </ul>
+
+            </div>
+
+            {/* Contact */}
+            <div>
+
+              <h3 className="text-lg font-semibold mb-6 text-white">
+                Contact
+              </h3>
+
+              <div className="space-y-4 text-gray-400">
+
+                <p>
+                  hello@annpeterproduction.com
+                </p>
+
+                <p>
+                  +254 700 000 000
+                </p>
+
+                <p>
+                  Nairobi, Kenya
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          {/* Bottom Footer */}
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4 pt-8">
+
+            <p className="text-gray-500 text-sm text-center md:text-left">
+              © 2026 Ann Peter Productions. All rights reserved.
+            </p>
+
+            {/* Social Links */}
+            <div className="flex items-center gap-6 text-gray-500">
+
+              <a href="#" className="hover:text-yellow-500 transition">
+                Instagram
+              </a>
+
+              <a href="#" className="hover:text-yellow-500 transition">
+                YouTube
+              </a>
+
+              <a href="#" className="hover:text-yellow-500 transition">
+                TikTok
+              </a>
+
+              <a href="#" className="hover:text-yellow-500 transition">
+                LinkedIn
+              </a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </footer>
 
     </div>
   )
